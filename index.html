@@ -456,79 +456,70 @@ button,.map{
   </div>
 </section>
 
-
 <script>
 
-const audio = document.getElementById('audio');
-const music = document.getElementById('music');
-const dots = document.querySelectorAll('.dot');
-const pages = document.querySelectorAll('.page');
-
-
-/* Music */
-function startMusic(){
-
-  audio.play()
-    .then(()=>{
-      music.textContent='❚❚';
-    })
-    .catch(()=>{
-      console.log('Browser blocked autoplay');
-    });
-
-}
-
-
-/* Try automatically */
-window.addEventListener('load',startMusic);
-
-
-/* First interaction starts music */
-document.addEventListener(
-  'pointerdown',
-  startMusic,
-  {once:true}
-);
-
+const audio = document.getElementById("audio");
+const music = document.getElementById("music");
+const dots = document.querySelectorAll(".dot");
+const pages = document.querySelectorAll(".page");
 
 /* Music button */
-music.addEventListener('click',(e)=>{
+music.addEventListener("click", async function(e) {
 
   e.stopPropagation();
 
-  if(audio.paused){
+  if (audio.paused) {
 
-    audio.play().then(()=>{
-      music.textContent='❚❚';
-    });
+    try {
+      await audio.play();
+      music.textContent = "❚❚";
+    } catch (error) {
+      console.log("Music could not start");
+    }
 
-  }else{
+  } else {
 
     audio.pause();
-    music.textContent='♫';
+    music.textContent = "♫";
 
   }
 
 });
 
 
-/* Update page dots */
+/* Start music on first tap anywhere */
+document.addEventListener("click", async function() {
+
+  if (audio.paused) {
+
+    try {
+      await audio.play();
+      music.textContent = "❚❚";
+    } catch (error) {
+      console.log("Waiting for another tap");
+    }
+
+  }
+
+}, { once: true });
+
+
+/* Page dots */
 const observer = new IntersectionObserver(
-  entries=>{
+  function(entries) {
 
-    entries.forEach(entry=>{
+    entries.forEach(function(entry) {
 
-      if(entry.isIntersecting){
+      if (entry.isIntersecting) {
 
-        const index =
-          [...pages].indexOf(entry.target);
+        const index = [...pages].indexOf(entry.target);
 
-        dots.forEach(dot=>{
-          dot.classList.remove('active');
+        dots.forEach(function(dot) {
+          dot.classList.remove("active");
         });
 
-        if(dots[index]){
-          dots[index].classList.add('active');
+        if (dots[index]) {
+          dots[index].classList.add("active");
         }
 
       }
@@ -537,15 +528,12 @@ const observer = new IntersectionObserver(
 
   },
   {
-    threshold:.55
+    threshold: 0.55
   }
 );
 
-pages.forEach(page=>{
+pages.forEach(function(page) {
   observer.observe(page);
 });
 
 </script>
-
-</body>
-</html>
