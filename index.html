@@ -9,9 +9,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap');
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 html{
   scroll-behavior:smooth;
@@ -23,11 +21,13 @@ body{
   background:#17060c;
   color:#f9e8bb;
   overflow-x:hidden;
+  scroll-snap-type:y mandatory;
 }
 
-/* Each invitation page */
+/* प्रत्येक पेज */
 .page{
   min-height:100vh;
+  min-height:100svh;
   width:100%;
   display:flex;
   align-items:center;
@@ -35,12 +35,9 @@ body{
   padding:45px 22px;
   position:relative;
   scroll-snap-align:start;
+  scroll-snap-stop:always;
   background:
     radial-gradient(circle at 50% 20%,#792536,#430d18 55%,#17060c);
-}
-
-body{
-  scroll-snap-type:y proximity;
 }
 
 /* Gold border */
@@ -145,7 +142,7 @@ button,.map{
   color:#f6d67e;
 }
 
-/* Music button */
+/* Music */
 .music{
   position:fixed;
   z-index:20;
@@ -160,7 +157,7 @@ button,.map{
   border:1px solid #dfbd68;
 }
 
-/* Floating golden particles */
+/* Floating particles */
 .particle{
   position:fixed;
   width:5px;
@@ -184,9 +181,7 @@ button,.map{
     transform:translateY(0);
     opacity:0;
   }
-  20%{
-    opacity:.7;
-  }
+  20%{opacity:.7}
   100%{
     transform:translateY(-110vh);
     opacity:0;
@@ -202,12 +197,10 @@ button,.map{
 }
 
 @keyframes bounce{
-  50%{
-    transform:translateY(8px);
-  }
+  50%{transform:translateY(8px)}
 }
 
-/* Bottom navigation dots */
+/* Dots */
 .dots{
   position:fixed;
   z-index:15;
@@ -231,7 +224,7 @@ button,.map{
   transform:scale(1.4);
 }
 
-/* Mobile adjustments */
+/* Mobile */
 @media(max-width:600px){
   .page{
     padding:35px 18px;
@@ -276,199 +269,191 @@ button,.map{
 
 <!-- PAGE 1 -->
 <section class="page">
+  <div class="content">
 
-<div class="content">
+    <div class="tiny">
+      ॥ श्री गणेशाय नमः ॥
+    </div>
 
-<div class="tiny">
-॥ श्री गणेशाय नमः ॥
-</div>
+    <img
+      class="gan"
+      src="ganpati.jpg"
+      alt="Ganpati Bappa"
+    >
 
-<img
-  class="gan"
-  src="ganpati.jpg"
-  alt="Ganpati Bappa"
->
+    <h1>
+      गणपती बाप्पा<br>
+      मोरया!
+    </h1>
 
-<h1>
-गणपती बाप्पा<br>
-मोरया!
-</h1>
+    <p>
+      एका मंगलमय पर्वाची<br>
+      सुरुवात आपल्या स्नेहाने करूया.
+    </p>
 
-<p>
-एका मंगलमय पर्वाची<br>
-सुरुवात आपल्या स्नेहाने करूया.
-</p>
+    <div class="scroll">
+      ↓ खाली स्क्रोल करा ↓
+    </div>
 
-<div class="scroll">
-↓ खाली स्क्रोल करा ↓
-</div>
-
-</div>
+  </div>
 </section>
 
 
 <!-- PAGE 2 -->
 <section class="page">
+  <div class="content">
 
-<div class="content">
+    <div class="tiny">
+      🌺 आपले स्नेहपूर्ण आमंत्रण 🌺
+    </div>
 
-<div class="tiny">
-🌺 आपले स्नेहपूर्ण आमंत्रण 🌺
-</div>
+    <h2>
+      श्री गणेश आगमन सोहळा
+    </h2>
 
-<h2>
-श्री गणेश आगमन सोहळा
-</h2>
+    <h1>
+      सोपारे परिवार
+    </h1>
 
-<h1>
-सोपारे परिवार
-</h1>
+    <div class="card">
+      <p>
+        गणरायाच्या मंगलमय आगमनाने<br>
+        आमच्या घरी आनंद, भक्ती आणि
+        उत्साहाचे पर्व सुरू होत आहे.
+      </p>
+    </div>
 
-<div class="card">
+    <p class="gold">
+      आपली उपस्थिती हाच आमच्यासाठी आशीर्वाद. 🙏
+    </p>
 
-<p>
-गणरायाच्या मंगलमय आगमनाने<br>
-आमच्या घरी आनंद, भक्ती आणि
-उत्साहाचे पर्व सुरू होत आहे.
-</p>
+    <div class="scroll">
+      ↓ पुढे ↓
+    </div>
 
-</div>
-
-<p class="gold">
-आपली उपस्थिती हाच आमच्यासाठी आशीर्वाद. 🙏
-</p>
-
-<div class="scroll">
-↓ पुढे ↓
-</div>
-
-</div>
+  </div>
 </section>
 
 
 <!-- PAGE 3 -->
 <section class="page">
+  <div class="content">
 
-<div class="content">
+    <div class="tiny">
+      🪔 शुभ दिवस 🪔
+    </div>
 
-<div class="tiny">
-🪔 शुभ दिवस 🪔
-</div>
+    <h2>
+      कार्यक्रम
+    </h2>
 
-<h2>
-कार्यक्रम
-</h2>
+    <div class="card">
+      <div class="date">
+        १४ सप्टेंबर
+      </div>
 
-<div class="card">
+      <div class="label">
+        गणपती आगमन
+      </div>
+    </div>
 
-<div class="date">
-१४ सप्टेंबर
-</div>
+    <div class="card">
+      <div class="date">
+        १८ सप्टेंबर
+      </div>
 
-<div class="label">
-गणपती आगमन
-</div>
+      <div class="label">
+        सत्यनारायण महापूजा
+      </div>
+    </div>
 
-</div>
+    <p class="gold">
+      🙏 आपली उपस्थिती लाभावी ही विनंती 🙏
+    </p>
 
-<div class="card">
+    <div class="scroll">
+      ↓ पुढे ↓
+    </div>
 
-<div class="date">
-१८ सप्टेंबर
-</div>
-
-<div class="label">
-सत्यनारायण महापूजा
-</div>
-
-</div>
-
-<p class="gold">
-🙏 आपली उपस्थिती लाभावी ही विनंती 🙏
-</p>
-
-<div class="scroll">
-↓ पुढे ↓
-</div>
-
-</div>
+  </div>
 </section>
 
 
 <!-- PAGE 4 -->
 <section class="page">
+  <div class="content">
 
-<div class="content">
+    <div class="tiny">
+      📍 आपली वाट पाहत आहोत
+    </div>
 
-<div class="tiny">
-📍 आपली वाट पाहत आहोत
-</div>
+    <h2>
+      स्थळ
+    </h2>
 
-<h2>
-स्थळ
-</h2>
+    <h1>
+      Antartica<br>
+      A Wing, 203
+    </h1>
 
-<h1>
-Antartica<br>
-A Wing, 203
-</h1>
+    <p>
+      Lodha Casa Rio, Nilaje
+    </p>
 
-<p>
-Lodha Casa Rio, Nilaje
-</p>
+    <a
+      class="map"
+      href="https://maps.app.goo.gl/kutVSRvNavwCP9RA9?g_st=ac"
+      target="_blank"
+      rel="noopener"
+    >
+      📍 Google Maps वर मार्ग पहा
+    </a>
 
-<a
-  class="map"
-  href="https://maps.app.goo.gl/kutVSRvNavwCP9RA9?g_st=ac"
-  target="_blank"
-  rel="noopener"
->
-📍 Google Maps वर मार्ग पहा
-</a>
+    <p class="gold">
+      आपण नक्की या! ❤️
+    </p>
 
-<p class="gold">
-आपण नक्की या! ❤️
-</p>
+    <div class="scroll">
+      ↓ पुढे ↓
+    </div>
 
-<div class="scroll">
-↓ पुढे ↓
-</div>
-
-</div>
+  </div>
 </section>
 
 
 <!-- PAGE 5 -->
 <section class="page">
+  <div class="content">
 
-<div class="content">
+    <div class="tiny">
+      ॥ मंगलमूर्ती मोरया ॥
+    </div>
 
-<div class="tiny">
-॥ मंगलमूर्ती मोरया ॥
-</div>
+    <h1>
+      पुन्हा भेटूया ❤️
+    </h1>
 
-<h1>
-पुन्हा भेटूया ❤️
-</h1>
+    <p>
+      गणरायाच्या आशीर्वादाने<br>
+      हा मंगल सोहळा आपल्या उपस्थितीने
+      अधिक सुंदर होवो.
+    </p>
 
-<p>
-गणरायाच्या आशीर्वादाने<br>
-हा मंगल सोहळा आपल्या उपस्थितीने
-अधिक सुंदर होवो.
-</p>
+    <div
+      class="gold"
+      style="font-size:28px;margin:25px 0"
+    >
+      🙏 गणपती बाप्पा मोरया 🙏
+    </div>
 
-<div class="gold" style="font-size:28px;margin:25px 0">
-🙏 गणपती बाप्पा मोरया 🙏
-</div>
+    <button
+      class="secondary"
+      onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    >
+      ↺ पुन्हा सुरुवातीपासून
+    </button>
 
-<button
-  class="secondary"
-  onclick="window.scrollTo({top:0,behavior:'smooth'})"
->
-↺ पुन्हा सुरुवातीपासून
-</button>
-
-</div>
+  </div>
 </section>
 
 
@@ -477,18 +462,19 @@ Lodha Casa Rio, Nilaje
 const audio = document.getElementById('audio');
 const music = document.getElementById('music');
 const dots = document.querySelectorAll('.dot');
+const pages = document.querySelectorAll('.page');
 
 
 /* Music */
 function startMusic(){
 
   audio.play()
-  .then(()=>{
-    music.textContent='❚❚';
-  })
-  .catch(()=>{
-    console.log('Browser blocked autoplay');
-  });
+    .then(()=>{
+      music.textContent='❚❚';
+    })
+    .catch(()=>{
+      console.log('Browser blocked autoplay');
+    });
 
 }
 
@@ -497,15 +483,9 @@ function startMusic(){
 window.addEventListener('load',startMusic);
 
 
-/* First touch/scroll starts music */
+/* First interaction starts music */
 document.addEventListener(
   'pointerdown',
-  startMusic,
-  {once:true}
-);
-
-document.addEventListener(
-  'touchstart',
   startMusic,
   {once:true}
 );
@@ -533,8 +513,6 @@ music.addEventListener('click',(e)=>{
 
 
 /* Update page dots */
-const pages = document.querySelectorAll('.page');
-
 const observer = new IntersectionObserver(
   entries=>{
 
@@ -545,9 +523,9 @@ const observer = new IntersectionObserver(
         const index =
           [...pages].indexOf(entry.target);
 
-        dots.forEach(dot=>
-          dot.classList.remove('active')
-        );
+        dots.forEach(dot=>{
+          dot.classList.remove('active');
+        });
 
         if(dots[index]){
           dots[index].classList.add('active');
@@ -563,7 +541,9 @@ const observer = new IntersectionObserver(
   }
 );
 
-pages.forEach(page=>observer.observe(page));
+pages.forEach(page=>{
+  observer.observe(page);
+});
 
 </script>
 
