@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#3b0710">
+<title>श्री गणेश आगमन सोहळा | सोपारे परिवार</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#25050b;
+  --bg2:#430b13;
+  --gold:#f5c76b;
+  --gold2:#ffe6a4;
+  --cream:#fff2cf;
+  --red:#8e1728;
+  --line:rgba(245,199,107,.55);
+  --shadow:0 18px 55px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--cream);
+  font-family:"Noto Sans Devanagari",sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:20;
+  opacity:.12;
+  background-image:
+    radial-gradient(circle at 20% 20%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 80% 70%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 55% 40%,#fff 0 1px,transparent 2px);
+  background-size:110px 130px,160px 180px,220px 200px;
+  animation:stars 12s linear infinite;
+}
+@keyframes stars{to{background-position:0 130px,0 180px,0 200px}}
+section.page{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:72px 20px 82px;
+  overflow:hidden;
+}
+.page:before{
+  content:"";
+  position:absolute;inset:13px;
+  border:1px solid var(--line);
+  border-radius:28px;
+  pointer-events:none;
+}
+.page:after{
+  content:"";
+  position:absolute;inset:26px;
+  border:1px solid rgba(245,199,107,.14);
+  border-radius:22px;
+  pointer-events:none;
+}
+.inner{
+  width:min(560px,100%);
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.ornament{color:var(--gold);letter-spacing:8px;font-size:13px;margin:7px 0}
+.kicker{font-size:14px;color:var(--gold2);letter-spacing:1px}
+h1,h2,h3{margin:0;font-weight:700}
+h1{
+  font-size:clamp(38px,11vw,68px);
+  line-height:1.08;
+  color:var(--gold2);
+  text-shadow:0 5px 28px rgba(245,199,107,.18);
+}
+h2{font-size:clamp(30px,8vw,48px);color:var(--gold)}
+p{line-height:1.9;margin:12px 0}
+.gold{color:var(--gold)}
+.card{
+  background:linear-gradient(145deg,rgba(108,18,30,.78),rgba(42,5,11,.92));
+  border:1px solid var(--line);
+  border-radius:25px;
+  padding:24px 20px;
+  box-shadow:var(--shadow),inset 0 0 30px rgba(245,199,107,.035);
+  backdrop-filter:blur(5px);
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  color:#2a060c;background:linear-gradient(135deg,var(--gold2),var(--gold));
+  text-decoration:none;border:0;border-radius:999px;
+  padding:13px 25px;font:700 16px "Noto Sans Devanagari",sans-serif;
+  box-shadow:0 8px 25px rgba(245,199,107,.2);
+  cursor:pointer;
+}
+.btn:active{transform:scale(.97)}
+.music{
+  position:fixed;right:18px;top:18px;z-index:50;
+  width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--gold);color:var(--gold);
+  background:rgba(53,6,14,.9);
+  font-size:21px;cursor:pointer;
+  box-shadow:0 0 25px rgba(245,199,107,.18);
+}
+.music.playing{animation:pulse 1.7s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(245,199,107,.06),0 0 30px rgba(245,199,107,.28)}}
+
+/* floating petals */
+.petal{
+  position:fixed;top:-30px;z-index:4;pointer-events:none;
+  width:8px;height:13px;border-radius:100% 0 100% 0;
+  background:var(--gold);opacity:.55;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  0%{transform:translate3d(0,-40px,0) rotate(0)}
+  100%{transform:translate3d(90px,110vh,0) rotate(540deg)}
+}
+.ganesha{
+  width:min(340px,78vw);aspect-ratio:1/1;object-fit:contain;
+  display:block;margin:22px auto 8px;
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.55));
+  animation:float 4.5s ease-in-out infinite;
+}
+@keyframes float{50%{transform:translateY(-7px)}}
+.hero-glow{
+  position:absolute;width:340px;height:340px;border-radius:50%;
+  background:rgba(245,150,40,.13);filter:blur(55px);
+  left:50%;top:50%;transform:translate(-50%,-46%);
+  z-index:-1;
+}
+.diya{
+  font-size:34px;display:inline-block;
+  filter:drop-shadow(0 0 10px rgba(245,199,107,.65));
+  animation:flicker 1.8s ease-in-out infinite;
+}
+@keyframes flicker{50%{transform:scale(1.08);opacity:.78}}
+.welcome-copy{font-size:15px;color:#f9dfac}
+.timeline{text-align:left;margin-top:24px}
+.event{
+  position:relative;padding:0 0 25px 42px;margin-left:12px;
+  border-left:1px solid rgba(245,199,107,.5);
+}
+.event:last-child{border-left-color:transparent;padding-bottom:0}
+.event:before{
+  content:"";position:absolute;left:-8px;top:0;width:15px;height:15px;
+  border-radius:50%;background:var(--gold);
+  box-shadow:0 0 0 5px rgba(245,199,107,.1);
+}
+.event-date{color:var(--gold);font-size:14px;font-weight:700}
+.event h3{font-size:21px;color:var(--gold2);margin:4px 0}
+.event p{font-size:14px;color:#f5dca9;margin:0}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:25px 0}
+.timebox{padding:14px 5px;border:1px solid var(--line);border-radius:15px;background:rgba(0,0,0,.18)}
+.timebox strong{display:block;font-size:27px;color:var(--gold2)}
+.timebox span{font-size:11px;color:#e8c98f}
+.map-card{margin-top:20px}
+.address{font-size:21px;color:var(--gold2);font-weight:700;line-height:1.5}
+.subaddress{color:#f0d49f}
+.footer-note{margin-top:18px;color:#d9b978;font-size:12px}
+.restart{margin-top:20px}
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+.dots{
+  position:fixed;right:10px;top:50%;transform:translateY(-50%);
+  z-index:40;display:flex;flex-direction:column;gap:9px;
+}
+.dot{
+  width:7px;height:7px;border-radius:50%;border:1px solid var(--gold);
+  background:transparent;transition:.3s;
+}
+.dot.active{height:20px;border-radius:8px;background:var(--gold)}
+.scroll{
+  position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+  font-size:11px;color:#d7b574;opacity:.75;
+}
+.scroll span{display:block;margin-top:5px;animation:bounce 1.5s infinite}
+@keyframes bounce{50%{transform:translateY(5px)}}
+.garland{
+  position:absolute;top:0;left:0;right:0;height:42px;
+  background:repeating-linear-gradient(90deg,#e99b22 0 13px,transparent 13px 22px);
+  opacity:.12;filter:blur(1px);
+}
+@media(max-width:380px){
+  section.page{padding-left:17px;padding-right:17px}
+  .countdown{gap:5px}.timebox strong{font-size:23px}
+  .address{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+
+<button class="music" id="music" aria-label="संगीत सुरू किंवा बंद करा">♫</button>
+
+<audio id="audio" loop playsinline preload="auto">
+  <source src="ganpati-song.mp3" type="audio/mpeg">
+</audio>
+
+<div id="petals"></div>
+
+<nav class="dots" aria-label="पृष्ठे">
+  <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</nav>
+
+<!-- 1 -->
+<section class="page" id="home">
+  <div class="hero-glow"></div>
+  <div class="inner reveal">
+    <div class="ornament">॥ श्री गणेशाय नमः ॥</div>
+    <div class="diya">🪔</div>
+    <div class="kicker">सोपारे परिवाराचे स्नेहपूर्ण आमंत्रण</div>
+    <h1>आपले हार्दिक<br>स्वागत आहे</h1>
+
+    <img class="ganesha" src="ganpati.jpg" alt="श्री गणेश">
+
+    <p class="welcome-copy">एका मंगलमय पर्वाची<br>सुरुवात आपल्या स्नेहाने करूया.</p>
+    <div class="ornament">✦ ───────── ✦</div>
+    <a class="btn" href="#invite">प्रवेश करा ✦</a>
+  </div>
+  <div class="scroll">खाली स्क्रोल करा <span>⌄</span></div>
+</section>
+
+<!-- 2 -->
+<section class="page" id="invite">
+  <div class="garland"></div>
+  <div class="inner reveal">
+    <div class="ornament">❖ आपले स्नेहपूर्ण आमंत्रण ❖</div>
+    <h2>श्री गणेश</h2>
+    <div class="kicker">आगमन सोहळा</div>
+    <div class="ornament">✦ · ✦ · ✦</div>
+
+    <div class="card">
+      <h3 class="gold">सोपारे परिवार</h3>
+      <p>
+        गणरायाच्या मंगलमय आगमनाने आमच्या घरी
+        आनंद, भक्ती आणि उत्साहाचे पर्व सुरू होत आहे.
+      </p>
+      <div class="ornament">❁</div>
+      <p class="gold">आपली उपस्थिती हाच<br>आमच्यासाठी आशीर्वाद. 🙏</p>
+    </div>
+
+    <div style="margin-top:25px;font-size:35px">🪔 🌺 🪔</div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="page" id="events">
+  <div class="inner reveal">
+    <div class="ornament">❖ शुभ दिवस ❖</div>
+    <h2>कार्यक्रम</h2>
+
+    <div class="timeline card">
+      <div class="event">
+        <div class="event-date">१४ सप्टेंबर</div>
+        <h3>गणपती आगमन</h3>
+        <p>मंगलमय आगमन सोहळा</p>
+      </div>
+
+      <div class="event">
+        <div class="event-date">१८ सप्टेंबर</div>
+        <h3>सत्यनारायण महापूजा</h3>
+        <p>श्रींच्या कृपेने पावन प्रसाद</p>
+      </div>
+    </div>
+
+    <p class="gold" style="margin-top:25px">🙏 आपली उपस्थिती लाभावी ही विनंती 🙏</p>
+    <div style="font-size:34px;margin-top:12px">🌺 🪔 🌺</div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="page" id="countdown">
+  <div class="hero-glow"></div>
+  <div class="inner reveal">
+    <div class="ornament">❖ गणपती आगमनास अजून ❖</div>
+    <h2>किती दिवस?</h2>
+
+    <div class="countdown">
+      <div class="timebox"><strong id="days">00</strong><span>दिवस</span></div>
+      <div class="timebox"><strong id="hours">00</strong><span>तास</span></div>
+      <div class="timebox"><strong id="minutes">00</strong><span>मिनिटे</span></div>
+      <div class="timebox"><strong id="seconds">00</strong><span>सेकंद</span></div>
+    </div>
+
+    <img class="ganesha" src="ganpati.jpg" alt="गणपती बाप्पा">
+    <h3 class="gold" style="font-size:25px">गणपती बाप्पा मोरया!</h3>
+    <div class="ornament">✦ ───── ✦</div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="page" id="location">
+  <div class="inner reveal">
+    <div class="ornament">❖ आपली वाट पाहत आहोत ❖</div>
+    <h2 style="font-size:34px">स्थळ</h2>
+
+    <div class="card map-card">
+      <div style="font-size:38px">📍</div>
+      <div class="address">Antartica<br>A Wing, 203</div>
+      <div class="subaddress">Lodha Casa Rio, Nilaje</div>
+      <div class="ornament">✦</div>
+      <a class="btn" target="_blank" rel="noopener"
+         href="https://maps.app.goo.gl/kutVSRvNavwCP9RA9?g_st=ac">
+        🗺️ Google Maps वर मार्ग पहा
+      </a>
+    </div>
+
+    <p class="gold" style="font-size:20px;margin-top:25px">आपण नक्की या! ❤️</p>
+    <div style="font-size:35px">🪔 🌸 🪔</div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="page" id="final">
+  <div class="inner reveal">
+    <div class="ornament">॥ मंगलमूर्ती मोरया ॥</div>
+    <h1 style="font-size:43px">पुन्हा भेटूया</h1>
+    <div class="ornament">♥</div>
+
+    <div class="card">
+      <p>
+        गणरायाच्या आशीर्वादाने हा मंगल सोहळा
+        आपल्या उपस्थितीने अधिक सुंदर होवो.
+      </p>
+
+      <img class="ganesha" style="width:min(280px,70vw)" src="ganpati.jpg" alt="श्री गणेश">
+
+      <h2 style="font-size:28px">🙏 गणपती बाप्पा मोरया 🙏</h2>
+      <p>आपले स्नेहांकित,</p>
+      <h3 class="gold" style="font-size:25px">सोपारे परिवार</h3>
+    </div>
+
+    <a class="btn restart" href="#home">↻ पुन्हा सुरुवातीपासून</a>
+    <div class="footer-note">आपल्या उपस्थितीने हा उत्सव अधिक मंगलमय होईल ✨</div>
+  </div>
+</section>
+
+<script>
+const audio = document.getElementById("audio");
+const music = document.getElementById("music");
+const dots = document.querySelectorAll(".dot");
+const pages = document.querySelectorAll(".page");
+
+async function playMusic(){
+  try{
+    audio.load();
+    await audio.play();
+    music.textContent = "❚❚";
+    music.classList.add("playing");
+    return true;
+  }catch(error){
+    console.error("Music could not start:", error);
+    return false;
+  }
+}
+
+music.addEventListener("click", async (e)=>{
+  e.stopPropagation();
+  if(audio.paused){
+    await playMusic();
+  }else{
+    audio.pause();
+    music.textContent = "♫";
+    music.classList.remove("playing");
+  }
+});
+
+/* Start music after the first non-button tap, where the browser permits it. */
+async function firstTap(e){
+  if(e.target.closest("#music")) return;
+  if(await playMusic()){
+    document.removeEventListener("click", firstTap);
+  }
+}
+document.addEventListener("click", firstTap);
+
+/* Active page dots */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const index = [...pages].indexOf(entry.target);
+      dots.forEach(dot=>dot.classList.remove("active"));
+      if(dots[index]) dots[index].classList.add("active");
+    }
+  });
+},{threshold:.55});
+pages.forEach(page=>observer.observe(page));
+
+/* Reveal animations */
+const revealObserver = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
+
+/* Countdown to Ganpati arrival: 14 September 2026 */
+const target = new Date("2026-09-14T00:00:00+05:30").getTime();
+
+function updateCountdown(){
+  let diff = target - Date.now();
+  if(diff < 0) diff = 0;
+
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor(diff%86400000/3600000);
+  const m = Math.floor(diff%3600000/60000);
+  const s = Math.floor(diff%60000/1000);
+
+  document.getElementById("days").textContent = String(d).padStart(2,"0");
+  document.getElementById("hours").textContent = String(h).padStart(2,"0");
+  document.getElementById("minutes").textContent = String(m).padStart(2,"0");
+  document.getElementById("seconds").textContent = String(s).padStart(2,"0");
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+/* Gentle flower petals */
+const petalBox = document.getElementById("petals");
+for(let i=0;i<18;i++){
+  const p=document.createElement("div");
+  p.className="petal";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(7+Math.random()*8)+"s";
+  p.style.animationDelay=(-Math.random()*12)+"s";
+  p.style.transform="scale("+(0.55+Math.random()*.8)+")";
+  petalBox.appendChild(p);
+}
+
+audio.addEventListener("error",()=>{
+  console.error("Audio error:", audio.error);
+});
+</script>
+
+</body>
+</html>
