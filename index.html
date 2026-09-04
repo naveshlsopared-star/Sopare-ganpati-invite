@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>सोपारे परिवार | गणपती आमंत्रण</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap');
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:'Noto Serif Devanagari',serif;background:#17060c;color:#f9e8bb}
+.deck{height:100%;display:flex;transition:transform .7s cubic-bezier(.77,0,.18,1)}
+.slide{min-width:100vw;height:100vh;display:grid;place-items:center;padding:22px;position:relative;background:radial-gradient(circle at 50% 20%,#792536,#430d18 50%,#17060c)}
+.slide:before{content:"";position:absolute;inset:12px;border:1px solid #d5af5b77;border-radius:25px}
+.content{width:min(560px,92vw);text-align:center;position:relative;z-index:1}
+.gold{color:#f1c967}.tiny{letter-spacing:4px;font-size:13px}
+h1{font-family:'Yatra One',serif;font-size:clamp(32px,8vw,52px);line-height:1.2;margin:10px 0;color:#ffdc7b}
+h2{font-size:clamp(20px,5vw,28px);margin:12px 0;color:#fff0c9}
+p{font-size:16px;line-height:2;color:#eed9a9}
+.card{margin:14px auto;padding:18px;border:1px solid #d2ad5c66;border-radius:20px;background:#fff1d912}
+.date{font-size:29px;font-weight:700;color:#ffdf82}.label{font-size:14px;color:#e9d4a3}
+button,.map{border:1px solid #dfbb62;border-radius:999px;padding:12px 22px;background:#d9ad4f;color:#290710;font:600 15px 'Noto Serif Devanagari';text-decoration:none;display:inline-block;margin:7px;cursor:pointer}
+.secondary{background:transparent;color:#f6d67e}
+.controls{position:fixed;z-index:5;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.music{position:fixed;z-index:6;right:18px;top:18px;width:46px;height:46px;padding:0;border-radius:50%;background:#5c1424;color:#ffd978}
+.dots{position:fixed;z-index:5;top:18px;left:50%;transform:translateX(-50%);color:#e4bd67;letter-spacing:5px;font-size:12px}
+.gan{width:170px;height:170px;filter:drop-shadow(0 10px 20px #0009)}
+@keyframes float{50%{transform:translateY(-12px)}}.float{animation:float 4s ease-in-out infinite}
+</style>
+</head>
+<body>
+<div class="dots" id="dots">● ○ ○ ○ ○</div>
+<button class="music" id="music">♫</button>
+<audio id="audio" loop><source src="ganpati-song.mp3" type="audio/mpeg"></audio>
+<div class="deck" id="deck">
+
+<section class="slide"><div class="content">
+<div class="tiny gold">॥ श्री गणेशाय नमः ॥</div>
+<svg class="gan float" viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" fill="none" stroke="#dfbd68" stroke-width="1.5"/>
+<path d="M65 67Q43 47 48 25Q68 34 82 54M135 67Q157 47 152 25Q132 34 118 54" fill="none" stroke="#f0ce77" stroke-width="7" stroke-linecap="round"/>
+<path d="M73 57Q100 38 127 57L137 101Q132 145 100 158Q68 145 63 101Z" fill="#a95642" stroke="#f0ce77" stroke-width="3"/>
+<circle cx="86" cy="83" r="5" fill="#ffe9ae"/><circle cx="114" cy="83" r="5" fill="#ffe9ae"/>
+<path d="M100 92C88 104 90 116 100 120C110 116 112 104 100 92M100 120C94 129 92 137 97 147" fill="none" stroke="#f4d57f" stroke-width="5" stroke-linecap="round"/>
+<path d="M69 105Q48 102 39 116Q58 123 74 119M131 105Q152 102 161 116Q142 123 126 119" fill="none" stroke="#f0ce77" stroke-width="5" stroke-linecap="round"/>
+<circle cx="100" cy="57" r="7" fill="#e2b84f"/></svg>
+<h1>गणपती बाप्पा<br>मोरया!</h1><p>एका मंगलमय पर्वाची<br>सुरुवात आपल्या स्नेहाने करूया.</p>
+<button onclick="next()">आमंत्रण पाहा →</button>
+</div></section>
+
+<section class="slide"><div class="content">
+<div class="tiny gold">🌺 आपले स्नेहपूर्ण आमंत्रण 🌺</div><h2>श्री गणेश आगमन सोहळा</h2><h1>सोपारे परिवार</h1>
+<div class="card"><p>गणरायाच्या मंगलमय आगमनाने<br>आमच्या घरी आनंद, भक्ती आणि उत्साहाचे पर्व सुरू होत आहे.</p></div>
+<p class="gold">आपली उपस्थिती हाच आमच्यासाठी आशीर्वाद. 🙏</p>
+<button onclick="next()">कार्यक्रम →</button>
+</div></section>
+
+<section class="slide"><div class="content">
+<div class="tiny gold">🪔 शुभ दिवस 🪔</div><h2>कार्यक्रम</h2>
+<div class="card"><div class="date">१४ सप्टेंबर</div><div class="label">गणपती आगमन</div></div>
+<div class="card"><div class="date">१८ सप्टेंबर</div><div class="label">सत्यनारायण महापूजा</div></div>
+<button onclick="next()">स्थळ →</button>
+</div></section>
+
+<section class="slide"><div class="content">
+<div class="tiny gold">📍 आपली वाट पाहत आहोत</div><h2>स्थळ</h2><h1>Antartica<br>A Wing, 203</h1>
+<p>Lodha Casa Rio, Nilaje</p>
+<a class="map" href="https://maps.app.goo.gl/kutVSRvNavwCP9RA9?g_st=ac" target="_blank" rel="noopener">📍 Google Maps वर मार्ग पहा</a>
+<p class="gold">आपण नक्की या! ❤️</p><button onclick="next()">पुढे →</button>
+</div></section>
+
+<section class="slide"><div class="content">
+<div class="tiny gold">॥ मंगलमूर्ती मोरया ॥</div><h1>पुन्हा भेटूया ❤️</h1>
+<p>गणरायाच्या आशीर्वादाने<br>हा मंगल सोहळा आपल्या उपस्थितीने अधिक सुंदर होवो.</p>
+<div class="gold" style="font-size:28px">🙏 गणपती बाप्पा मोरया 🙏</div>
+<button class="secondary" onclick="go(0)">↺ पुन्हा सुरुवातीपासून</button>
+</div></section>
+</div>
+<div class="controls"><button class="secondary" onclick="prev()">←</button><button class="secondary" onclick="next()">→</button></div>
+<script>
+let i=0;const deck=document.getElementById('deck'),dots=document.getElementById('dots'),audio=document.getElementById('audio');
+function go(n){i=Math.max(0,Math.min(4,n));deck.style.transform=`translateX(-${i*100}vw)`;dots.textContent=['● ○ ○ ○ ○','○ ● ○ ○ ○','○ ○ ● ○ ○','○ ○ ○ ● ○','○ ○ ○ ○ ●'][i]}
+function next(){go(i+1)}function prev(){go(i-1)}
+document.getElementById('music').onclick=()=>{if(audio.paused){audio.play();document.getElementById('music').textContent='❚❚'}else{audio.pause();document.getElementById('music').textContent='♫'}};
+let sx=0;document.addEventListener('touchstart',e=>sx=e.touches[0].clientX);document.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)dx<0?next():prev()});
+</script></body></html>
