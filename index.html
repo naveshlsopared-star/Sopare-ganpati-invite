@@ -10,314 +10,411 @@
 @import url('https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap');
 
 *{
-  box-sizing:border-box
+  box-sizing:border-box;
 }
 
-html,body{
-  margin:0;
-  width:100%;
-  height:100%;
-  overflow:hidden
+html{
+  scroll-behavior:smooth;
 }
 
 body{
+  margin:0;
   font-family:'Noto Serif Devanagari',serif;
   background:#17060c;
   color:#f9e8bb;
+  overflow-x:hidden;
 }
 
-.deck{
-  height:100%;
+/* Each invitation page */
+.page{
+  min-height:100vh;
+  width:100%;
   display:flex;
-  transition:transform .7s cubic-bezier(.77,0,.18,1)
-}
-
-.slide{
-  min-width:100vw;
-  height:100vh;
-  display:grid;
-  place-items:center;
-  padding:22px;
+  align-items:center;
+  justify-content:center;
+  padding:45px 22px;
   position:relative;
+  scroll-snap-align:start;
   background:
-    radial-gradient(
-      circle at 50% 20%,
-      #792536,
-      #430d18 50%,
-      #17060c
-    )
+    radial-gradient(circle at 50% 20%,#792536,#430d18 55%,#17060c);
 }
 
-.slide:before{
+body{
+  scroll-snap-type:y proximity;
+}
+
+/* Gold border */
+.page::before{
   content:"";
   position:absolute;
   inset:12px;
   border:1px solid #d5af5b77;
   border-radius:25px;
+  pointer-events:none;
 }
 
 .content{
   width:min(560px,92vw);
   text-align:center;
   position:relative;
-  z-index:1;
-}
-
-.gold{
-  color:#f1c967
+  z-index:2;
 }
 
 .tiny{
-  letter-spacing:4px;
-  font-size:13px
+  letter-spacing:3px;
+  font-size:13px;
+  color:#f1c967;
+}
+
+.gold{
+  color:#f1c967;
 }
 
 h1{
   font-family:'Yatra One',serif;
-  font-size:clamp(32px,8vw,52px);
+  font-size:clamp(38px,10vw,58px);
   line-height:1.2;
-  margin:10px 0;
-  color:#ffdc7b
+  margin:18px 0;
+  color:#ffdc7b;
+  text-shadow:0 3px 15px #0008;
 }
 
 h2{
-  font-size:clamp(20px,5vw,28px);
-  margin:12px 0;
-  color:#fff0c9
+  font-size:clamp(22px,6vw,30px);
+  margin:15px 0;
+  color:#fff0c9;
 }
 
 p{
-  font-size:16px;
+  font-size:17px;
   line-height:2;
-  color:#eed9a9
+  color:#eed9a9;
 }
 
+/* Ganpati image */
+.gan{
+  width:min(330px,82vw);
+  max-height:430px;
+  object-fit:cover;
+  border-radius:24px;
+  border:2px solid #dfbd68;
+  box-shadow:0 12px 35px #000b;
+  display:block;
+  margin:20px auto;
+}
+
+/* Cards */
 .card{
-  margin:14px auto;
-  padding:18px;
-  border:1px solid #d2ad5c66;
+  margin:18px auto;
+  padding:20px;
+  border:1px solid #d2ad5c77;
   border-radius:20px;
-  background:#fff1d912
+  background:#fff1d912;
+  box-shadow:0 8px 25px #0004;
 }
 
 .date{
-  font-size:29px;
+  font-size:32px;
   font-weight:700;
-  color:#ffdf82
+  color:#ffdf82;
 }
 
 .label{
-  font-size:14px;
-  color:#e9d4a3
+  font-size:15px;
+  color:#e9d4a3;
+  margin-top:5px;
 }
 
+/* Buttons */
 button,.map{
   border:1px solid #dfbb62;
   border-radius:999px;
-  padding:12px 22px;
+  padding:13px 24px;
   background:#d9ad4f;
   color:#290710;
   font:600 15px 'Noto Serif Devanagari';
   text-decoration:none;
   display:inline-block;
-  margin:7px;
+  margin:8px;
   cursor:pointer;
+  box-shadow:0 5px 18px #0005;
 }
 
 .secondary{
   background:transparent;
-  color:#f6d67e
+  color:#f6d67e;
 }
 
-.controls{
-  position:fixed;
-  z-index:5;
-  bottom:18px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:8px
-}
-
+/* Music button */
 .music{
   position:fixed;
-  z-index:6;
+  z-index:20;
   right:18px;
   top:18px;
-  width:46px;
-  height:46px;
+  width:48px;
+  height:48px;
   padding:0;
   border-radius:50%;
   background:#5c1424;
-  color:#ffd978
+  color:#ffd978;
+  border:1px solid #dfbd68;
 }
 
-/* Ganpati photo */
-.gan{
-  width:min(280px,72vw);
-  height:330px;
-  object-fit:cover;
-  border-radius:22px;
-  border:2px solid #dfbd68;
-  filter:drop-shadow(0 10px 20px #0009);
-  display:block;
-  margin:0 auto 18px;
+/* Floating golden particles */
+.particle{
+  position:fixed;
+  width:5px;
+  height:5px;
+  background:#f1c967;
+  border-radius:50%;
+  opacity:.7;
+  animation:rise 7s linear infinite;
+  pointer-events:none;
+  z-index:1;
 }
 
-@keyframes float{
-  50%{
-    transform:translateY(-8px)
+.p1{left:12%;bottom:-10px;animation-delay:0s}
+.p2{left:30%;bottom:-10px;animation-delay:2s}
+.p3{left:55%;bottom:-10px;animation-delay:4s}
+.p4{left:78%;bottom:-10px;animation-delay:1s}
+.p5{left:90%;bottom:-10px;animation-delay:5s}
+
+@keyframes rise{
+  0%{
+    transform:translateY(0);
+    opacity:0;
+  }
+  20%{
+    opacity:.7;
+  }
+  100%{
+    transform:translateY(-110vh);
+    opacity:0;
   }
 }
 
-.float{
-  animation:float 4s ease-in-out infinite
+/* Scroll indicator */
+.scroll{
+  margin-top:25px;
+  color:#e8c36b;
+  font-size:14px;
+  animation:bounce 1.8s infinite;
 }
 
+@keyframes bounce{
+  50%{
+    transform:translateY(8px);
+  }
+}
+
+/* Bottom navigation dots */
 .dots{
   position:fixed;
-  z-index:5;
-  top:18px;
-  left:50%;
-  transform:translateX(-50%);
-  color:#e4bd67;
-  letter-spacing:5px;
-  font-size:12px
+  z-index:15;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#cba34e99;
+}
+
+.dot.active{
+  background:#ffdc7b;
+  transform:scale(1.4);
+}
+
+/* Mobile adjustments */
+@media(max-width:600px){
+  .page{
+    padding:35px 18px;
+  }
+
+  .gan{
+    max-height:390px;
+  }
+
+  p{
+    font-size:16px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="dots" id="dots">
-  ● ○ ○ ○ ○
-</div>
-
-<button class="music" id="music">
-  ♫
-</button>
+<!-- Music -->
+<button class="music" id="music">♫</button>
 
 <audio id="audio" loop autoplay playsinline>
   <source src="ganpati-song.mp3" type="audio/mpeg">
 </audio>
 
-<div class="deck" id="deck">
+<!-- Floating particles -->
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
 
-<!-- SLIDE 1 -->
-<section class="slide">
+<!-- Page dots -->
+<div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+
+<!-- PAGE 1 -->
+<section class="page">
+
 <div class="content">
 
-<div class="tiny gold">
-  ॥ श्री गणेशाय नमः ॥
+<div class="tiny">
+॥ श्री गणेशाय नमः ॥
 </div>
 
 <img
-  class="gan float"
+  class="gan"
   src="ganpati.jpg"
   alt="Ganpati Bappa"
 >
 
 <h1>
-  गणपती बाप्पा<br>
-  मोरया!
+गणपती बाप्पा<br>
+मोरया!
 </h1>
 
 <p>
-  एका मंगलमय पर्वाची<br>
-  सुरुवात आपल्या स्नेहाने करूया.
+एका मंगलमय पर्वाची<br>
+सुरुवात आपल्या स्नेहाने करूया.
 </p>
 
-<button onclick="startMusic(); next()">आमंत्रण पाहा →</button>
+<div class="scroll">
+↓ खाली स्क्रोल करा ↓
+</div>
 
 </div>
 </section>
 
 
-<!-- SLIDE 2 -->
-<section class="slide">
+<!-- PAGE 2 -->
+<section class="page">
+
 <div class="content">
 
-<div class="tiny gold">
-  🌺 आपले स्नेहपूर्ण आमंत्रण 🌺
+<div class="tiny">
+🌺 आपले स्नेहपूर्ण आमंत्रण 🌺
 </div>
 
 <h2>
-  श्री गणेश आगमन सोहळा
+श्री गणेश आगमन सोहळा
 </h2>
 
 <h1>
-  सोपारे परिवार
+सोपारे परिवार
 </h1>
 
 <div class="card">
+
 <p>
-  गणरायाच्या मंगलमय आगमनाने<br>
-  आमच्या घरी आनंद, भक्ती आणि
-  उत्साहाचे पर्व सुरू होत आहे.
+गणरायाच्या मंगलमय आगमनाने<br>
+आमच्या घरी आनंद, भक्ती आणि
+उत्साहाचे पर्व सुरू होत आहे.
 </p>
+
 </div>
 
 <p class="gold">
-  आपली उपस्थिती हाच आमच्यासाठी आशीर्वाद. 🙏
+आपली उपस्थिती हाच आमच्यासाठी आशीर्वाद. 🙏
 </p>
 
-<button onclick="next()">
-  कार्यक्रम →
-</button>
+<div class="scroll">
+↓ पुढे ↓
+</div>
 
 </div>
 </section>
 
 
-<!-- SLIDE 3 -->
-<section class="slide">
+<!-- PAGE 3 -->
+<section class="page">
+
 <div class="content">
 
-<div class="tiny gold">
-  🪔 शुभ दिवस 🪔
+<div class="tiny">
+🪔 शुभ दिवस 🪔
 </div>
 
 <h2>
-  कार्यक्रम
+कार्यक्रम
 </h2>
 
 <div class="card">
-  <div class="date">१४ सप्टेंबर</div>
-  <div class="label">गणपती आगमन</div>
+
+<div class="date">
+१४ सप्टेंबर
+</div>
+
+<div class="label">
+गणपती आगमन
+</div>
+
 </div>
 
 <div class="card">
-  <div class="date">१८ सप्टेंबर</div>
-  <div class="label">सत्यनारायण महापूजा</div>
+
+<div class="date">
+१८ सप्टेंबर
 </div>
 
-<button onclick="next()">
-  स्थळ →
-</button>
+<div class="label">
+सत्यनारायण महापूजा
+</div>
+
+</div>
+
+<p class="gold">
+🙏 आपली उपस्थिती लाभावी ही विनंती 🙏
+</p>
+
+<div class="scroll">
+↓ पुढे ↓
+</div>
 
 </div>
 </section>
 
 
-<!-- SLIDE 4 -->
-<section class="slide">
+<!-- PAGE 4 -->
+<section class="page">
+
 <div class="content">
 
-<div class="tiny gold">
-  📍 आपली वाट पाहत आहोत
+<div class="tiny">
+📍 आपली वाट पाहत आहोत
 </div>
 
 <h2>
-  स्थळ
+स्थळ
 </h2>
 
 <h1>
-  Antartica<br>
-  A Wing, 203
+Antartica<br>
+A Wing, 203
 </h1>
 
 <p>
-  Lodha Casa Rio, Nilaje
+Lodha Casa Rio, Nilaje
 </p>
 
 <a
@@ -326,181 +423,147 @@ button,.map{
   target="_blank"
   rel="noopener"
 >
-  📍 Google Maps वर मार्ग पहा
+📍 Google Maps वर मार्ग पहा
 </a>
 
 <p class="gold">
-  आपण नक्की या! ❤️
+आपण नक्की या! ❤️
 </p>
 
-<button onclick="next()">
-  पुढे →
-</button>
+<div class="scroll">
+↓ पुढे ↓
+</div>
 
 </div>
 </section>
 
 
-<!-- SLIDE 5 -->
-<section class="slide">
+<!-- PAGE 5 -->
+<section class="page">
+
 <div class="content">
 
-<div class="tiny gold">
-  ॥ मंगलमूर्ती मोरया ॥
+<div class="tiny">
+॥ मंगलमूर्ती मोरया ॥
 </div>
 
 <h1>
-  पुन्हा भेटूया ❤️
+पुन्हा भेटूया ❤️
 </h1>
 
 <p>
-  गणरायाच्या आशीर्वादाने<br>
-  हा मंगल सोहळा आपल्या उपस्थितीने
-  अधिक सुंदर होवो.
+गणरायाच्या आशीर्वादाने<br>
+हा मंगल सोहळा आपल्या उपस्थितीने
+अधिक सुंदर होवो.
 </p>
 
-<div class="gold" style="font-size:28px">
-  🙏 गणपती बाप्पा मोरया 🙏
+<div class="gold" style="font-size:28px;margin:25px 0">
+🙏 गणपती बाप्पा मोरया 🙏
 </div>
 
 <button
   class="secondary"
-  onclick="go(0)"
+  onclick="window.scrollTo({top:0,behavior:'smooth'})"
 >
-  ↺ पुन्हा सुरुवातीपासून
+↺ पुन्हा सुरुवातीपासून
 </button>
 
 </div>
 </section>
 
-</div>
-
-
-<!-- Navigation -->
-<div class="controls">
-  <button class="secondary" onclick="prev()">←</button>
-  <button class="secondary" onclick="next()">→</button>
-</div>
-
 
 <script>
 
-let i = 0;
-
-const deck = document.getElementById('deck');
-const dots = document.getElementById('dots');
 const audio = document.getElementById('audio');
 const music = document.getElementById('music');
+const dots = document.querySelectorAll('.dot');
 
 
-function go(n){
-
-  i = Math.max(0, Math.min(4,n));
-
-  deck.style.transform =
-    `translateX(-${i * 100}vw)`;
-
-  dots.textContent = [
-    '● ○ ○ ○ ○',
-    '○ ● ○ ○ ○',
-    '○ ○ ● ○ ○',
-    '○ ○ ○ ● ○',
-    '○ ○ ○ ○ ●'
-  ][i];
-
-}
-
-
-function next(){
-  go(i + 1);
-}
-
-
-function prev(){
-  go(i - 1);
-}
-
-
-/* Start music */
+/* Music */
 function startMusic(){
 
   audio.play()
-    .then(()=>{
-      music.textContent = '❚❚';
-    })
-    .catch(()=>{
-      /*
-        Some mobile browsers block autoplay.
-        Music will start after the first tap.
-      */
-    });
+  .then(()=>{
+    music.textContent='❚❚';
+  })
+  .catch(()=>{
+    console.log('Browser blocked autoplay');
+  });
 
 }
 
 
-/* Try autoplay */
-window.addEventListener('load', startMusic);
+/* Try automatically */
+window.addEventListener('load',startMusic);
 
 
-/* Start music on first interaction */
+/* First touch/scroll starts music */
 document.addEventListener(
   'pointerdown',
   startMusic,
   {once:true}
 );
 
+document.addEventListener(
+  'touchstart',
+  startMusic,
+  {once:true}
+);
+
 
 /* Music button */
-music.onclick = (event)=>{
+music.addEventListener('click',(e)=>{
 
-  event.stopPropagation();
+  e.stopPropagation();
 
   if(audio.paused){
 
-    audio.play()
-      .then(()=>{
-        music.textContent = '❚❚';
-      });
+    audio.play().then(()=>{
+      music.textContent='❚❚';
+    });
 
   }else{
 
     audio.pause();
-    music.textContent = '♫';
+    music.textContent='♫';
 
   }
 
-};
+});
 
 
-/* Swipe navigation */
-let sx = 0;
+/* Update page dots */
+const pages = document.querySelectorAll('.page');
 
-document.addEventListener(
-  'touchstart',
-  e=>{
-    sx = e.touches[0].clientX;
-  }
-);
+const observer = new IntersectionObserver(
+  entries=>{
 
-document.addEventListener(
-  'touchend',
-  e=>{
+    entries.forEach(entry=>{
 
-    let dx =
-      e.changedTouches[0].clientX - sx;
+      if(entry.isIntersecting){
 
-    if(Math.abs(dx) > 50){
+        const index =
+          [...pages].indexOf(entry.target);
 
-      if(dx < 0){
-        next();
-      }else{
-        prev();
+        dots.forEach(dot=>
+          dot.classList.remove('active')
+        );
+
+        if(dots[index]){
+          dots[index].classList.add('active');
+        }
+
       }
 
-    }
+    });
 
+  },
+  {
+    threshold:.55
   }
 );
+
+pages.forEach(page=>observer.observe(page));
 
 </script>
 
